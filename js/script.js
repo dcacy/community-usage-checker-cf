@@ -359,8 +359,10 @@ $(document).ready(function() {
 	if (vars.tok) {
 		// we found tok in the query string; set it as a cookie and reload the page w/o the query string
 		document.cookie = `tok=${vars.tok}; path=/`;
+		console.log('window.location.href is ' + window.location.href);
 		alert('window.location.href is ' + window.location.href);
 		const newHref = window.location.href.substring(window.location.href.indexOf('?') -1);
+		console.log('newHref is', newHref);
 		alert('newHref is ' + newHref);
 		window.location.href = newHref;
 	} else {
