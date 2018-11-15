@@ -361,7 +361,7 @@ $(document).ready(function() {
 		document.cookie = `tok=${vars.tok}; path=/`;
 		console.log('window.location.href is ' + window.location.href);
 		alert('window.location.href is ' + window.location.href);
-		const newHref = window.location.href.substring(window.location.href.indexOf('?') -1);
+		const newHref = window.location.href.substring(0,window.location.href.indexOf('?') -1);
 		console.log('newHref is', newHref);
 		alert('newHref is ' + newHref);
 		window.location.href = newHref;
