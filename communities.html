@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Community Usage Checker</title>
+	<link type="text/css" rel="stylesheet" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+	<link type="text/css" rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link type="text/css" rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
+	<link type="text/css" rel="stylesheet" href="/css/styles.css"/>
+  <link rel="shortcut icon" href="/images/favicon.png">
+	<!-- <script type="text/javascript"> 
+		var SemTagSvcConfig = {baseUrl: "https://dpc-c60.ibmcollabcloud.com", proxyURL: "/bizCard"};
+	</script>
+	<script type="text/javascript" 
+		src="https://dpc-c60.ibmcollabcloud.com/profiles/ibm_semanticTagServlet/javascript/semanticTagService.js" defer>
+	</script>
+	-->
+</head>
+
+<body>
+	<div id="loadingWrapper" style="display:block;">
+		<div class="bx--loading-overlay">
+		  <div data-loading class="bx--loading">
+			<svg class="bx--loading__svg" viewBox="-75 -75 150 150">
+			  <title>Loading</title>
+			  <circle cx="0" cy="0" r="37.5" />
+			</svg>
+		  </div>
+		</div>
+	</div>
+
+	<div id="error"></div>
+		
+	<div id="bodyWrapper" style="display:none;">
+		<div id="userInfo"></div>
+		<div id="communitiesTableWrapper" style="width:60%;">
+			<span class="communityNote">Note: <span class="asterisks">***</span> = restricted community</span>
+			<div class="tableHeader">Communities</div>
+			<div id="communitiesLoadingDiv" class="loadingDiv" style="text-align:center;"></div>	  		
+	   	<table class="table table-bordered display" id="communitiesTable"></table>
+		</div>
+	
+		<div id="communityDetailsWrapper" style="display:none;">
+			<div class="communityDetailsInnerWrapper">
+				<div class="tabWrapper">
+					<div class="tableHeader">Details</div>
+					<!--<div id="detailsLoadingDiv" class="loadingDiv"></div>-->
+					<div id="detailsLoadingWrapper" style="display:block;">
+						<div class="bx--loading-overlay" style="position:relative;top:auto;left:auto;">
+						  <div data-loading class="bx--loading">
+							<svg class="bx--loading__svg" viewBox="-75 -75 150 150">
+							  <title>Loading</title>
+							  <circle cx="0" cy="0" r="37.5" />
+							</svg>
+						  </div>
+						</div>
+					</div>
+				  <div id="communityDetails"></div>
+		  	</div>
+		  </div>
+		</div>
+  </div>
+
+	<script type="text/javascript" src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+	<!--<script type="text/javascript" src="/js/jquery.loadmask.min.js"></script>-->
+	<script type="text/javascript" src="/js/date.format.js"></script>
+	<script type="text/javascript" src="/js/script.js"></script>
+</body>
+</html>
