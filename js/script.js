@@ -48,8 +48,9 @@ function getAllCommunities() {
 	$.post('https://openwhisk.ng.bluemix.net/api/v1/web/dcacy_community-usage-checker/community-usage-checker/getAllCommunities',
 	{tok: tok})
 
-  .done(function(data) {
-		// console.log('in done with', data);
+  .done(function(data, textStatus, jqXHR) {
+		console.log('headers:', jqXHR.getResponseHeader('tok'));
+		console.log('in done with', data);
 		$('#userInfo').html(`Communities available to user ${data.name} (${data.email})`);
 		var communitiesTable = $('#communitiesTable').DataTable( {
 			data: data.communityInfo,

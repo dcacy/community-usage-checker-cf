@@ -1,0 +1,74 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <title>Community Usage Checker</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+	<!-- error message display -->
+	<div id="data"></div>
+	<button onclick="setCookie();return false;">Set Cookie</button>
+	<button onclick="getCookie();return false;">Get Cookie</button>
+	
+  
+  <script type="text/javascript" src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+
+  <script>
+  function setCookie() {
+    $.get('https://openwhisk.ng.bluemix.net/api/v1/web/dcacy_community-usage-checker/community-usage-checker/setcookies')
+    .done(function(data) {
+      $('#data').html(data);
+    })
+    .fail(function(err) {
+      $('#data').html(err);
+    })
+  }
+  /* the setcookies action:
+
+    function main(args) {
+
+      return {
+        headers: {
+          'Content-Type': 'text/plain',
+          'Set-Cookie': 
+            'hello=howdy'
+          
+          },
+          statusCode: 200,
+          body: 'success!'
+      };
+      
+    }
+
+  */
+  
+  function getCookie() {
+    $.get('https://openwhisk.ng.bluemix.net/api/v1/web/dcacy_community-usage-checker/community-usage-checker/showcookies.json')
+    .done(function(data) {
+      console.log('done getting cookies:', data);
+      $('#data').html(data);
+    })
+    .fail(function(err) {
+    })
+  }
+  
+  /* the showcookies action:
+
+    function main(args) {
+
+      return { 
+        cookie: args.__ow_headers.cookie || ''
+      };
+      
+    }
+
+
+  */
+
+  </script>    
+</body>
+</html>
+     
