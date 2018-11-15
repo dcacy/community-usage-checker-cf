@@ -359,7 +359,8 @@ $(document).ready(function() {
 	if (vars.tok) {
 		// we found tok in the query string; set it as a cookie and reload the page w/o the query string
 		document.cookie = `tok=${vars.tok}; path=/`;
-		window.location.href = '/communities.html';
+		const newHref = window.location.href.substring(window.location.href.indexOf('?') -1);
+		window.location.href = newHref;
 	} else {
 		// must have already done the above; get the communities
 		getAllCommunities();
