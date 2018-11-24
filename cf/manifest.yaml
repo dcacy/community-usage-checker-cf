@@ -1,0 +1,58 @@
+packages:
+  community-usage-checker: #this is a package name
+    actions:
+      login:
+        function: login.js
+        runtime: nodejs:8
+        web-export: true
+        inputs:
+          community_usage_checker:
+            type: json
+            value: {
+              "APP_HOSTNAME": "${APP_HOSTNAME}",
+              "CLIENT_ID": "${CLIENT_ID}",
+              "CLIENT_SECRET": "${CLIENT_SECRET}",
+              "OAUTHBACK_URL": "${OAUTHBACK_URL}"
+            }
+      oauthback:
+        function: oauthback.js
+        runtime: nodejs:8
+        web-export: raw
+        inputs:
+          community_usage_checker:
+            type: json
+            value: {
+              "APP_HOSTNAME": "${APP_HOSTNAME}",
+              "CLIENT_ID": "${CLIENT_ID}",
+              "CLIENT_SECRET": "${CLIENT_SECRET}",
+              "OAUTHBACK_URL": "${OAUTHBACK_URL}"
+            }
+      getAllCommunities:
+        function: getAllCommunities.js
+        runtime: nodejs:8
+        web-export: true
+      saveToCloudant:
+        function: saveToCloudant.js
+        runtime: nodejs:8
+        inputs:
+          community_usage_checker:
+            type: json
+            value: {
+              "API_KEY": "${API_KEY}"
+            }
+      getUserIdentity:
+        function: getUserIdentity.js
+        runtime: nodejs:8
+      getOAuthInfo:
+        function: getOAuthInfo.js
+        runtime: nodejs:8
+        inputs:
+          community_usage_checker:
+            type: json
+            value: {
+              "API_KEY": "${API_KEY}"
+            }
+      getCommunityDetails:
+        function: getCommunityDetails.js
+        runtime: nodejs:8
+        web-export: true
